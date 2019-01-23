@@ -35,7 +35,7 @@ export default class SearchBar extends React.Component <any, any> {
     }
 
     render() {
-        console.log(this.props);
+        
         return (
             <Navbar.Form pullRight>
                 <form style={formStyle} onSubmit={this.onSubmitSearch}>
