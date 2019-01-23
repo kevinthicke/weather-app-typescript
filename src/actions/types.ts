@@ -1,0 +1,3 @@
+export enum ActionTypes {
+    FETCH_CURRENT_WEATHER = 'FETCH_CURRENT_WEATHER'
+}

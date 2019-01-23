@@ -1,7 +1,16 @@
 import * as React from 'react';
+import CurrentWeather from './components/CurrentWeather';
+import AppBar from './components/AppBar';
+import { Grid } from 'react-bootstrap';
+import CurrentWeatherContainer from './containers/CurrentWeatherContainer';
 
-export default class App extends React.Component <{}, {}> {
+export default class App extends React.Component <any, any> {
   render() {
-    return <h1>This is the AppComponent!</h1>;
+    return(
+      <Grid fluid>
+          <AppBar />
+          <CurrentWeatherContainer />
+      </Grid>
+    ) 
   }
 }
