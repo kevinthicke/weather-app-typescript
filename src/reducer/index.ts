@@ -5,7 +5,7 @@ export default function reducer (state, action) {
         case ActionTypes.FETCH_CURRENT_WEATHER:
             return ({
                 ...state,
-                currentWeather: action.payload
+                aCurrentWeather: state.aCurrentWeather.concat(action.payload)
             });
         default:
             return state;

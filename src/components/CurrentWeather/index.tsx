@@ -22,16 +22,16 @@ const CurrentWeatherStyle: React.CSSProperties = {
 }
 
 export interface CurrentWeatherProps {
-    currentWeather: any
+    data: any
 }
 
 export default class CurrentWeather extends React.Component <CurrentWeatherProps, any> {
     
     render() {
-        console.log(this.props);
+        const { data } = this.props;
         return(
             <div style={CurrentWeatherStyle}>
-                <Location city={data.city} />
+                <Location city={'cali'} />
                 <Temperature temperature={data.temperature} />
                 <ExtraInfo humidity={data.humidity} pressure={data.pressure} /> 
             </div>
