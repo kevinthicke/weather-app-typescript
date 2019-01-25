@@ -29,9 +29,10 @@ export default class CurrentWeather extends React.Component <CurrentWeatherProps
     
     render() {
         const { data } = this.props;
+
         return(
             <div style={CurrentWeatherStyle}>
-                <Location city={'cali'} />
+                <Location city={data.name} />
                 <Temperature temperature={data.temperature} />
                 <ExtraInfo humidity={data.humidity} pressure={data.pressure} /> 
             </div>

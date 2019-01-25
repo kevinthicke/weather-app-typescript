@@ -1,13 +1,15 @@
 import convertTemperaturefromKelvinToCentrigrates from "./temperatureConverter";
-import currentWeatherInterface from '../models/currentWeather';
+import ICurrentWeather from '../models/currentWeather';
 
-export default function filterCurrentWeather(data): currentWeatherInterface {
+export default function filterCurrentWeather(data) {
+    console.log(data);
     const {  
         main: { 
             temp,
             pressure,
             humidity
         },
+        name,
         weather: [{
             id: weatherId
         }],
@@ -19,5 +21,5 @@ export default function filterCurrentWeather(data): currentWeatherInterface {
 
     const temperature = convertTemperaturefromKelvinToCentrigrates(temp);
     
-    return ({ temperature, pressure, humidity, deg, speed, weatherId })
+    return ({ temperature, pressure, humidity, name, deg, speed, weatherId })
 }
