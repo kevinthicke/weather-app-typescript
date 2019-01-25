@@ -13,6 +13,7 @@ export default function filterCurrentWeather(data) {
         weather: [{
             id: weatherId
         }],
+        id,
         wind: {
             deg,
             speed
@@ -21,5 +22,5 @@ export default function filterCurrentWeather(data) {
 
     const temperature = convertTemperaturefromKelvinToCentrigrates(temp);
     
-    return ({ temperature, pressure, humidity, name, deg, speed, weatherId })
+    return ({ temperature, pressure, humidity, name, id, deg, speed, weatherId })
 }
