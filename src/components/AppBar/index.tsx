@@ -8,14 +8,11 @@ const NavbarStyle: React.CSSProperties = {
     marginTop: '10px'
 }
 
-export default class AppBar extends React.Component<any, any>{
+const AppBar = () => (
+    <Navbar inverse style={NavbarStyle} staticTop>
+        <Title /> 
+        <SearchBarContainer />
+    </Navbar>
+)
 
-    render() {
-        return (
-            <Navbar inverse style={NavbarStyle} staticTop>
-                <Title /> 
-                <SearchBarContainer />
-            </Navbar>
-        );
-    }
-}
+export default AppBar;

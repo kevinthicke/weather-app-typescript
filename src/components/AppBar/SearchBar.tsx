@@ -1,7 +1,5 @@
 import * as React from 'react';
-import { Navbar, FormGroup, FormControl, Button } from 'react-bootstrap';
-import { getCurrentWeather } from '../../actions/index';
-import CurrentWeather from '../CurrentWeather/index';
+import { Navbar, FormControl, Button } from 'react-bootstrap';
 
 const formStyle: React.CSSProperties = {
     display: 'grid',
@@ -9,9 +7,16 @@ const formStyle: React.CSSProperties = {
     gridGap: '7px'
 }
 
+export interface SearchBarProps {
+    getCurrentWeather: (city: string) => void
+}
 
-export default class SearchBar extends React.Component <any, any> {
-    constructor(props: any) {
+export interface SearchBarStates {
+    searchInput: string
+}
+
+export default class SearchBar extends React.Component <SearchBarProps, SearchBarStates> {
+    constructor(props: SearchBarProps) {
         super(props);
         this.state = { 
             searchInput: '',
