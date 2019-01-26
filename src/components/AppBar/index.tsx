@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Navbar } from 'react-bootstrap';
 import Title from './Title';
-import SearchBar from './SearchBar';
 import SearchBarContainer from '../../containers/SearchBarContainer';
 
 const NavbarStyle: React.CSSProperties = {
@@ -10,7 +9,7 @@ const NavbarStyle: React.CSSProperties = {
 
 const AppBar = () => (
     <Navbar inverse style={NavbarStyle} staticTop>
-        <Title /> 
+        <Title title={'Weather App'}/> 
         <SearchBarContainer />
     </Navbar>
 )
