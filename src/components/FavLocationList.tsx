@@ -18,10 +18,24 @@ const titleStyle: React.CSSProperties = {
 }
 
 export default class FavLocationList extends React.Component <any, any> {
+    constructor(props: any) {
+        super(props);
+
+        this.onRemoveCurrentWeather = this.onRemoveCurrentWeather.bind(this);
+    }
+    
+    onRemoveCurrentWeather(city) {
+        console.log('Eliminar ' + city)
+    }
+
     renderFavLocationList(aCurrentWeather) {
         if(aCurrentWeather.length==0) {
             return <div> </div>
-        } else return aCurrentWeather.map(currentWeather => <CurrentWeather key={currentWeather.id} data={currentWeather} />)
+        } else {
+            return aCurrentWeather.map(currentWeather => <CurrentWeather key={currentWeather.id} 
+                                                                         data={currentWeather}
+                                                                         handleRemoveCurrentWeather={this.onRemoveCurrentWeather} />)
+        }
     }
     
     render() {

@@ -15,17 +15,27 @@ const CurrentWeatherStyle: React.CSSProperties = {
 }
 
 export interface CurrentWeatherProps {
-    data: any
+    data: any,
+    handleRemoveCurrentWeather: (city: string) => void
 }
 
 export default class CurrentWeather extends React.Component <CurrentWeatherProps, any> {
+    constructor(props: any) {
+        super(props);
+
+        this.onRemoveFromFavLocations = this.onRemoveFromFavLocations.bind(this);
+    }
+    
+    onRemoveFromFavLocations(city) {
+      this.props.handleRemoveCurrentWeather(city)
+    }
 
     render() {
         const { data } = this.props;
         const weatherKeyword = getWeatherKeyword(data.weatherId);
         return(
             <div style={CurrentWeatherStyle}>
-                <Location city={data.name} />
+                <Location city={data.name} handleRemoveFromFavLocations={this.onRemoveFromFavLocations} />
                 <Temperature temperature={data.temperature} weatherKeyword={weatherKeyword} />
                 <ExtraInfo humidity={data.humidity} pressure={data.pressure} /> 
             </div>

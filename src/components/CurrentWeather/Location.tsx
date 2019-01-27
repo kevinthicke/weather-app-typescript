@@ -32,15 +32,16 @@ const cityStyle: React.CSSProperties = {
 
 export interface LocationProps {
     city: string,
+    handleRemoveFromFavLocations: (city: string) => void
 }
 
-const Location: React.SFC<LocationProps> = ({ city }) => {
+const Location: React.SFC<LocationProps> = ({ city, handleRemoveFromFavLocations }) => {
     const onClickExtendedInfo = (city) => {
         console.log('Haz hecho click en ' + city);
     }
 
     const onClickRemoveFromFavLocations = (city) => {
-        console.log('Remove from fav locations ' + city)
+        handleRemoveFromFavLocations(city)
     }
 
     return (
