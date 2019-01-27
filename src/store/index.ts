@@ -4,7 +4,7 @@ import reducer from '../reducer/index';
 
 const initialState = {
     aCurrentWeather: [],
-    weatherForecast: {}
+    weatherForecast: []
 }
 
 export default createStore(reducer, initialState as any, applyMiddleware(thunk));

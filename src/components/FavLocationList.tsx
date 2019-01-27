@@ -4,7 +4,7 @@ import CurrentWeather from './CurrentWeather';
 const FavLocationListStyle: React.CSSProperties = {
     width: '420px',
     height: '85vh',
-    background: '#292b2c',
+    //background: '#292b2c',
     padding: '10px',
     borderRadius: '1px',
     display: 'flex',
@@ -14,7 +14,8 @@ const FavLocationListStyle: React.CSSProperties = {
 }
 
 const titleStyle: React.CSSProperties = {
-    color: '#f7f7f7' 
+    //color: '#f7f7f7' 
+    color: 'black'
 }
 
 export default class FavLocationList extends React.Component <any, any> {
@@ -50,7 +51,7 @@ export default class FavLocationList extends React.Component <any, any> {
         
         return(
             <div style={FavLocationListStyle}>
-                <h4 style={titleStyle}>Favorite locations</h4>
+                <h3 style={titleStyle}>Favorite locations</h3>
                 { this.renderFavLocationList(aCurrentWeather)}
             </div>      
 

@@ -4,6 +4,7 @@ const ExtraInfoStyle: React.CSSProperties = {
     background: '#5bc0de',
     listStyleType: 'none',
     borderRadius: '2px',
+    marginTop: '1px',
     color: '#292b2c',
     fontSize: '12pt',
     display: 'flex',
