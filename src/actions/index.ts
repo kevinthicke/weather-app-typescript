@@ -20,3 +20,8 @@ export const getCurrentWeather = (city: string) => dispatch => {
             })
         )
 }
+
+export const deleteFavLocation = (city: string) => ({
+    type: ActionTypes.DELETE_FAV_LOCATION,
+    payload: city
+})

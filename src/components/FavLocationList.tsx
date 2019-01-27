@@ -1,5 +1,6 @@
 import * as React from 'react';
 import CurrentWeather from './CurrentWeather';
+import { deleteFavLocation } from '../actions/index';
 
 const FavLocationListStyle: React.CSSProperties = {
     width: '420px',
@@ -23,9 +24,9 @@ export default class FavLocationList extends React.Component <any, any> {
 
         this.onRemoveCurrentWeather = this.onRemoveCurrentWeather.bind(this);
     }
-    
+
     onRemoveCurrentWeather(city) {
-        console.log('Eliminar ' + city)
+        this.props.deleteFavLocation(city)
     }
 
     renderFavLocationList(aCurrentWeather) {

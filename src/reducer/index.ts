@@ -7,6 +7,11 @@ export default function reducer (state, action) {
                 ...state,
                 aCurrentWeather: state.aCurrentWeather.concat(action.payload)
             });
+        case ActionTypes.DELETE_FAV_LOCATION: 
+            return ({
+                ...state,
+                aCurrentWeather: state.aCurrentWeather.filter(weather => weather.name !== action.payload)
+            })
         default:
             return state;
     }
