@@ -4,7 +4,11 @@ import Title from './Title';
 import SearchBarContainer from '../../containers/SearchBarContainer';
 
 const NavbarStyle: React.CSSProperties = {
-    marginTop: '10px'
+    margin: '10px',
+    height: '60px',
+    borderRadius: '4px',
+    display: 'flex',
+    alignItems: 'center'
 }
 
 const AppBar = () => (

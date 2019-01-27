@@ -15,7 +15,7 @@ const FavLocationListStyle: React.CSSProperties = {
 
 const titleStyle: React.CSSProperties = {
     //color: '#f7f7f7' 
-    color: 'black'
+    color: '#292b2c'
 }
 
 export default class FavLocationList extends React.Component <any, any> {

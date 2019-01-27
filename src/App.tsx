@@ -6,7 +6,7 @@ import ForecastExtendedContainer from './containers/ForecastExtendedContainer';
 
 const AppContentStyle: React.CSSProperties = {
   display: 'grid',
-  gridTemplateColumns: '2fr 5fr'
+  gridTemplateColumns: '2fr 5fr',
 }
 
 export default class App extends React.Component <any, any> {

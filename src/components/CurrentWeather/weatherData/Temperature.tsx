@@ -3,7 +3,7 @@ import WeatherIcons from 'react-weathericons';
 
 const temperatureStyle: React.CSSProperties = {
     fontSize: '22pt',
-    marginTop: '2px',
+    marginTop: '1px',
     background: '#5bc0de',
     color: '#292b2c',
     borderRadius: '1px',

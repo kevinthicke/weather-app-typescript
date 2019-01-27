@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Panel } from 'react-bootstrap';
 import { getWeatherKeyword } from '../../utils/weatherIcons';
 import WeatherIcons from 'react-weathericons';
+import convertTemperaturefromKelvinToCentrigrates from '../../utils/temperatureConverter';
 
 
 const bodyStyle: React.CSSProperties = {
@@ -16,17 +17,20 @@ const bodyItemStyle: React.CSSProperties = {
 }
 
 export const ForecastItem = ({ forecast }) => {
-    const { weatherKeyword, temperature, humidity, pressure } = forecast;
-    const weatherIcon = getWeatherKeyword(weatherKeyword)
+    const { weatherKeyword, temperature, humidity, pressure, dateTime } = forecast;
+
+    const weatherIcon = getWeatherKeyword(weatherKeyword);
+    const temp = convertTemperaturefromKelvinToCentrigrates(temperature);
+
     return (
-        <Panel bsStyle="primary" key={forecast.datetime}>
+        <Panel bsStyle="primary" key={dateTime}>
             <Panel.Heading>
-                <Panel.Title componentClass="h3">{forecast.datetime}</Panel.Title>
+                <Panel.Title componentClass="h3">{dateTime}</Panel.Title>
             </Panel.Heading>
             <Panel.Body>
                 <div style={bodyStyle}>
                     <span style={bodyItemStyle}><WeatherIcons name={weatherIcon} size="2x" /></span>
-                    <span style={bodyItemStyle}>Temperature { temperature } ºC</span>
+                    <span style={bodyItemStyle}>Temperature { temp } ºC</span>
                     <span style={bodyItemStyle}>Humidity { humidity } %</span>
                     <span style={bodyItemStyle}>Pressure { pressure } atm</span>
                 </div>
