@@ -2,6 +2,7 @@ import filterForecastByHour, { unixTimeToString } from './moment';
 
 
 export default function filterWeatherForecast(data) {
+    
     const {
         city: {
             name
@@ -12,7 +13,7 @@ export default function filterWeatherForecast(data) {
     const aFilteredForecastByHour = filterForecastByHour(forecast);
     
     return aFilteredForecastByHour.map(element => {
-        const { 
+        const {
             dt: unixTime,
             main: {
                 humidity,
