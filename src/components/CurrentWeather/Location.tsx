@@ -1,12 +1,13 @@
 import * as React from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Glyphicon } from 'react-bootstrap';
 
 const LocationStyle: React.CSSProperties = {
     background: '#428bca',
     gridRow: '1',
     gridColumn: 'span 2',
     display: 'grid',
-    gridTemplateColumns: '7fr 1fr',
+    gridTemplateColumns: '7fr 1fr 1fr',
+    gridGap: '2px',
     color: '#292b2c',
     fontSize: '20pt',
     borderRadius: '2px',
@@ -14,7 +15,7 @@ const LocationStyle: React.CSSProperties = {
     paddingRight: '10px'
 }
 
-const infoButtonStyle: React.CSSProperties = {
+const ButtonStyle: React.CSSProperties = {
     display: 'flex',
     height: '30px',
     margin: 'auto',
@@ -30,16 +31,30 @@ const cityStyle: React.CSSProperties = {
 }
 
 export interface LocationProps {
-    city: string
+    city: string,
 }
 
-const Location: React.SFC<LocationProps> = ({ city }) => (
-    <div style={LocationStyle}>
+const Location: React.SFC<LocationProps> = ({ city }) => {
+    const onClickExtendedInfo = (city) => {
+        console.log('Haz hecho click en ' + city);
+    }
+
+    const onClickRemoveFromFavLocations = (city) => {
+        console.log('Remove from fav locations ' + city)
+    }
+
+    return (
+        <div style={LocationStyle}>
             <span style={cityStyle}>{ city }</span>
-            <Button bsStyle="success" style={infoButtonStyle}>
-                + info
+            <Button bsStyle="success" style={ButtonStyle} onClick={() => onClickExtendedInfo(city)}>
+                <span> <Glyphicon glyph="glyphicon glyphicon-plus"/> info </span>
             </Button>
-    </div>
-)
+            <Button bsStyle="danger" style={ButtonStyle} onClick={() => onClickRemoveFromFavLocations(city)}>
+                <span> <Glyphicon glyph="glyphicon glyphicon-remove"/> </span>
+            </Button>
+        </div>
+    )
+}
+
 
 export default Location;

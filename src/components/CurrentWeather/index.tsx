@@ -19,7 +19,7 @@ export interface CurrentWeatherProps {
 }
 
 export default class CurrentWeather extends React.Component <CurrentWeatherProps, any> {
-    
+
     render() {
         const { data } = this.props;
         const weatherKeyword = getWeatherKeyword(data.weatherId);
