@@ -22,7 +22,7 @@ export interface TemperatureProps {
     weatherKeyword: string
 }
 
-const Temperature: React.SFC<TemperatureProps> = ({ temperature, weatherKeyword }) => {
+const Temperature: React.SFC<TemperatureProps> = ({ temperature, weatherKeyword }) => { 
     return(
         <div style={temperatureStyle}>
             <span style={temperatureItemStyle}>{ temperature }ºC</span>

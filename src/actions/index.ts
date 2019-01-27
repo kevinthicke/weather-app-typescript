@@ -1,7 +1,8 @@
 import { ActionTypes } from './types';
-import { urlWeather } from '../utils/url';
+import { urlWeather, urlForecast } from '../utils/url';
 import filterCurrentWeather from '../utils/filterCurrentWeather';
 import IcurrentWeather from '../models/currentWeather';
+import filterWeatherForecast from '../utils/filterWeatherForecast';
 
 export interface IgetCurrentWeather {
     type: ActionTypes.FETCH_CURRENT_WEATHER,
@@ -26,7 +27,13 @@ export const deleteFavLocation = (city: string) => ({
     payload: city
 })
 
-export const getForecastExtended = (city: string) => ({
-    type: ActionTypes.FETCH_FORECAST_EXTENDED,
-    payload: `Forecast extended of ${city}`
-})
+export const getForecastExtended = (city: string) => dispatch => {
+    const url = urlForecast(city);
+    return fetch(url).then(
+        response => response.json()).then(
+            fullData => dispatch({
+                type: ActionTypes.FETCH_FORECAST_EXTENDED,
+                payload: filterWeatherForecast(fullData)
+            })
+        )
+}
