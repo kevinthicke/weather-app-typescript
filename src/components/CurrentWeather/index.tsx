@@ -1,15 +1,8 @@
 import * as React from 'react';
-import { Grid, Row } from 'react-bootstrap';
 import ExtraInfo from './weatherData/ExtraInfo';
 import Temperature from './weatherData/Temperature';
 import Location from './Location';
-
-const data = {
-    city: 'London',
-    temperature: 36,
-    humidity: 81,
-    pressure: 11023
-}
+import { getWeatherKeyword } from '../../utils/weatherIcons';
 
 const CurrentWeatherStyle: React.CSSProperties = {
     width: '400px',
@@ -29,11 +22,11 @@ export default class CurrentWeather extends React.Component <CurrentWeatherProps
     
     render() {
         const { data } = this.props;
-
+        const weatherKeyword = getWeatherKeyword(data.weatherId);
         return(
             <div style={CurrentWeatherStyle}>
                 <Location city={data.name} />
-                <Temperature temperature={data.temperature} />
+                <Temperature temperature={data.temperature} weatherKeyword={weatherKeyword} />
                 <ExtraInfo humidity={data.humidity} pressure={data.pressure} /> 
             </div>
         )

@@ -18,14 +18,15 @@ const temperatureItemStyle: React.CSSProperties = {
 }
 
 export interface TemperatureProps {
-    temperature: number
+    temperature: number,
+    weatherKeyword: string
 }
 
-const Temperature: React.SFC<TemperatureProps> = ({ temperature }) => {
+const Temperature: React.SFC<TemperatureProps> = ({ temperature, weatherKeyword }) => {
     return(
         <div style={temperatureStyle}>
             <span style={temperatureItemStyle}>{ temperature }ºC</span>
-            <span style={temperatureItemStyle}><WeatherIcons name="cloud" size="2x" /></span>
+            <span style={temperatureItemStyle}><WeatherIcons name={weatherKeyword} size="2x" /></span>
         </div>
     )
 }
