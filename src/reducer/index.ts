@@ -1,4 +1,4 @@
-import { ActionTypes } from "../actions/types";
+import { ActionTypes } from '../actions/types';
 
 export default function reducer (state, action) {
     switch (action.type) {
@@ -11,6 +11,11 @@ export default function reducer (state, action) {
             return ({
                 ...state,
                 aCurrentWeather: state.aCurrentWeather.filter(weather => weather.name !== action.payload)
+            })
+        case ActionTypes.FETCH_FORECAST_EXTENDED:
+            return ({
+                ...state,
+                weatherForecast: action.payload
             })
         default:
             return state;

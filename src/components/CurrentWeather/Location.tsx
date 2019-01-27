@@ -32,25 +32,26 @@ const cityStyle: React.CSSProperties = {
 
 export interface LocationProps {
     city: string,
-    handleRemoveFromFavLocations: (city: string) => void
+    handleRemoveCurrentWeather: (city: string) => void,
+    handleClickMoreInfo: (city: string) => void
 }
 
-const Location: React.SFC<LocationProps> = ({ city, handleRemoveFromFavLocations }) => {
-    const onClickExtendedInfo = (city) => {
-        console.log('Haz hecho click en ' + city);
+const Location: React.SFC<LocationProps> = ({ city, handleRemoveCurrentWeather, handleClickMoreInfo }) => {
+    const onClickMoreInfo = (city) => {
+        handleClickMoreInfo(city)
     }
 
-    const onClickRemoveFromFavLocations = (city) => {
-        handleRemoveFromFavLocations(city)
+    const onClickRemoveCurrentWeather = (city) => {
+        handleRemoveCurrentWeather(city)
     }
 
     return (
         <div style={LocationStyle}>
             <span style={cityStyle}>{ city }</span>
-            <Button bsStyle="success" style={ButtonStyle} onClick={() => onClickExtendedInfo(city)}>
+            <Button bsStyle="success" style={ButtonStyle} onClick={() => onClickMoreInfo(city)}>
                 <span> <Glyphicon glyph="glyphicon glyphicon-plus"/> info </span>
             </Button>
-            <Button bsStyle="danger" style={ButtonStyle} onClick={() => onClickRemoveFromFavLocations(city)}>
+            <Button bsStyle="danger" style={ButtonStyle} onClick={() => onClickRemoveCurrentWeather(city)}>
                 <span> <Glyphicon glyph="glyphicon glyphicon-remove"/> </span>
             </Button>
         </div>

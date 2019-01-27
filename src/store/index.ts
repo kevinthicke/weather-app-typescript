@@ -3,7 +3,8 @@ import thunk from 'redux-thunk';
 import reducer from '../reducer/index';
 
 const initialState = {
-    aCurrentWeather: []
+    aCurrentWeather: [],
+    weatherForecast: {}
 }
 
 export default createStore(reducer, initialState as any, applyMiddleware(thunk));

@@ -25,3 +25,8 @@ export const deleteFavLocation = (city: string) => ({
     type: ActionTypes.DELETE_FAV_LOCATION,
     payload: city
 })
+
+export const getForecastExtended = (city: string) => ({
+    type: ActionTypes.FETCH_FORECAST_EXTENDED,
+    payload: `Forecast extended of ${city}`
+})
