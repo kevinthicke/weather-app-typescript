@@ -11,5 +11,6 @@ export default interface IForecastExtended {
     temperature: number,
     humidity: number,
     pressure: number, 
-    dateTime: number
+    dateTime: string,
+    name: string
 }

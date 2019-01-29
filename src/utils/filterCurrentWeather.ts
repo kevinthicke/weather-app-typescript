@@ -1,8 +1,8 @@
 import convertTemperaturefromKelvinToCentrigrates from "./temperatureConverter";
-import ICurrentWeather from '../models/currentWeather';
+import ICurrentWeather from '../models/weatherModels';
 
 export default function filterCurrentWeather(data): ICurrentWeather {
-    console.log(data);
+    
     const {  
         main: { 
             temp,
@@ -17,5 +17,5 @@ export default function filterCurrentWeather(data): ICurrentWeather {
 
     const temperature = convertTemperaturefromKelvinToCentrigrates(temp);
     
-    return ({ temperature, pressure, humidity, name, weatherId })
+    return ({ temperature, pressure, humidity, name, weatherId }) as ICurrentWeather;
 }

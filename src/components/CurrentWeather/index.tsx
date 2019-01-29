@@ -3,8 +3,8 @@ import ExtraInfo from './weatherData/ExtraInfo';
 import Temperature from './weatherData/Temperature';
 import Location from './Location';
 import { getWeatherKeyword } from '../../utils/weatherIcons';
-import ICurrentWeather from '../../models/currentWeather';
 import { TWeatherKeyword } from '../../models/others';
+import ICurrentWeather from '../../models/weatherModels';
 
 const CurrentWeatherStyle: React.CSSProperties = {
     width: '400px',

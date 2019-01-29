@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { ForecastItem } from './ForecastItem';
+import IForecastExtended from '../../models/weatherModels';
 
 const ForecastExtendedStyle: React.CSSProperties = {
     paddingLeft: '10px',
@@ -8,7 +9,11 @@ const ForecastExtendedStyle: React.CSSProperties = {
     overflow: 'auto'
 }
 
-export default class ForecastExtended extends React.Component<any, any> {
+export interface ForecastExtendedProps {
+    weatherForecast: IForecastExtended[]
+}
+
+export default class ForecastExtended extends React.Component<ForecastExtendedProps, any> {
     renderForecastList() {
         return this.props.weatherForecast.map(
             (forecast, index) => <ForecastItem key={index} forecast={forecast} />
