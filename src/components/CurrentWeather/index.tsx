@@ -4,6 +4,7 @@ import Temperature from './weatherData/Temperature';
 import Location from './Location';
 import { getWeatherKeyword } from '../../utils/weatherIcons';
 import ICurrentWeather from '../../models/currentWeather';
+import { TWeatherKeyword } from '../../models/others';
 
 const CurrentWeatherStyle: React.CSSProperties = {
     width: '400px',
@@ -39,7 +40,7 @@ export default class CurrentWeather extends React.Component <CurrentWeatherProps
 
     render() {
         const { data } = this.props;
-        const weatherKeyword = getWeatherKeyword(data.weatherId);
+        const weatherKeyword: TWeatherKeyword = getWeatherKeyword(data.weatherId);
         
         return(
             <div style={CurrentWeatherStyle}>
