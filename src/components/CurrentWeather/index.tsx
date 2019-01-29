@@ -3,6 +3,7 @@ import ExtraInfo from './weatherData/ExtraInfo';
 import Temperature from './weatherData/Temperature';
 import Location from './Location';
 import { getWeatherKeyword } from '../../utils/weatherIcons';
+import ICurrentWeather from '../../models/currentWeather';
 
 const CurrentWeatherStyle: React.CSSProperties = {
     width: '400px',
@@ -15,12 +16,12 @@ const CurrentWeatherStyle: React.CSSProperties = {
 }
 
 export interface CurrentWeatherProps {
-    data: any,
+    data: ICurrentWeather,
     handleCityMoreInfo: (city: string) => void,
     handleCityToBeRemoved: (city: string) => void
 }
 
-export default class CurrentWeather extends React.Component <CurrentWeatherProps, any> {
+export default class CurrentWeather extends React.Component <CurrentWeatherProps, {}> {
     constructor(props: any) {
         super(props);
 
@@ -28,17 +29,18 @@ export default class CurrentWeather extends React.Component <CurrentWeatherProps
         this.onCityMoreInfo = this.onCityMoreInfo.bind(this);
     }
     
-    onCityToBeRemoved(city) {
+    onCityToBeRemoved(city: string) {
         this.props.handleCityToBeRemoved(city)
     }
 
-    onCityMoreInfo(city) {
+    onCityMoreInfo(city: string) {
         this.props.handleCityMoreInfo(city);
     }
 
     render() {
         const { data } = this.props;
         const weatherKeyword = getWeatherKeyword(data.weatherId);
+        
         return(
             <div style={CurrentWeatherStyle}>
                 <Location 

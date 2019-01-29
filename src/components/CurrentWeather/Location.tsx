@@ -37,11 +37,11 @@ export interface LocationProps {
 }
 
 const Location: React.SFC<LocationProps> = ({ city, handleRemoveCurrentWeather, handleClickMoreInfo }) => {
-    const onClickMoreInfo = (city) => {
+    const onClickMoreInfo = (city: string) => {
         handleClickMoreInfo(city)
     }
 
-    const onClickRemoveCurrentWeather = (city) => {
+    const onClickRemoveCurrentWeather = (city: string) => {
         handleRemoveCurrentWeather(city)
     }
 

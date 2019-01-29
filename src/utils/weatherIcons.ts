@@ -6,19 +6,23 @@ const weathers = {
     cloud:    [801, 802, 803, 804]
 };
 
-export const getWeatherKeyword = (id) => {
+type TWeatherKeyword = "showers" | "rain" | "snow" | "fog" | "cloud" | "day-sunny";
+
+export function getWeatherKeyword (id: number): TWeatherKeyword {
     const aWeathersValues = Object.keys(weathers).map(key => weathers[key])
     
     let weatherIndex = null; 
 
     aWeathersValues.forEach(
-        (weatherValues, index) => weatherValues.forEach(
-            value => {
+        (weatherValues: Array<number>, index: number) => weatherValues.forEach(
+            (value: number) => {
                 if (value==id) {
                     weatherIndex = index;
                 }
             })
         )
-    // console.log(`id = ${id}, weatherIndex=${weatherIndex}`);
-    return (weatherIndex===null) ? 'day-sunny': Object.keys(weathers)[weatherIndex];
+    
+    const weatherKeyword = (weatherIndex===null) ? "day-sunny" : Object.keys(weathers)[weatherIndex];
+
+    return weatherKeyword as TWeatherKeyword;
 }

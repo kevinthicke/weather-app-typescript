@@ -27,7 +27,7 @@ export const ForecastItem = ({ forecast }) => {
             <Panel.Heading>
                 <Panel.Title componentClass="h3">{dateTime}</Panel.Title>
             </Panel.Heading>
-            <Panel.Body>
+            <Panel.Body style={bodyStyle}>
                 <div style={bodyStyle}>
                     <span style={bodyItemStyle}><WeatherIcons name={weatherIcon} size="2x" /></span>
                     <span style={bodyItemStyle}>Temperature { temp } ºC</span>
