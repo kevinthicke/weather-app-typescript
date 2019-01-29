@@ -17,9 +17,9 @@ const bodyItemStyle: React.CSSProperties = {
 }
 
 export const ForecastItem = ({ forecast }) => {
-    const { weatherKeyword, temperature, humidity, pressure, dateTime } = forecast;
-
-    const weatherIcon = getWeatherKeyword(weatherKeyword);
+    const { weatherId, temperature, humidity, pressure, dateTime } = forecast;
+    
+    const weatherIcon = getWeatherKeyword(weatherId);
     const temp = convertTemperaturefromKelvinToCentrigrates(temperature);
 
     return (

@@ -9,7 +9,7 @@ export default function filterWeatherForecast(data) {
         },
         list: forecast
     } = data;
-
+    
     const aFilteredForecastByHour = filterForecastByHour(forecast);
     
     return aFilteredForecastByHour.map(element => {
@@ -27,6 +27,6 @@ export default function filterWeatherForecast(data) {
 
         const dateTime = unixTimeToString(unixTime);
 
-        return({ dateTime, humidity, pressure, temperature, weatherId });
+        return({ name, dateTime, humidity, pressure, temperature, weatherId });
     });
 }

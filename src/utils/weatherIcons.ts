@@ -19,6 +19,6 @@ export const getWeatherKeyword = (id) => {
                 }
             })
         )
-
+    // console.log(`id = ${id}, weatherIndex=${weatherIndex}`);
     return (weatherIndex===null) ? 'day-sunny': Object.keys(weathers)[weatherIndex];
 }

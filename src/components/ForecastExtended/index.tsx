@@ -17,10 +17,13 @@ export default class ForecastExtended extends React.Component<any, any> {
 
     render() {
         const { weatherForecast } = this.props;
+        
         if(weatherForecast.length!=0) {
+            const city = weatherForecast[0].name;
+
             return (
                 <div style={ForecastExtendedStyle}>
-                    <h2>Forecast Extended of ????</h2>
+                    <h2 style={{ marginBottom: '20px' }}>Extended forecast of { city }</h2>
                     { this.renderForecastList() }
                 </div>
             )
