@@ -9,15 +9,16 @@ export interface TitleProps {
     title: string
 }
 
-const Title: React.SFC<TitleProps> = ({ title }) => {
-    return (
-        <Navbar.Header>
-            <Navbar.Brand>
-                <a href="#home" style={TitleStyle}>{ title }</a>
-                </Navbar.Brand>
-            <Navbar.Toggle />
-        </Navbar.Header>
-    );
-};
-
-export default Title;
+export default class Title extends React.Component<TitleProps> {
+    render() {
+        const { title } = this.props;
+        return (
+            <Navbar.Header>
+                <Navbar.Brand>
+                    <a href="#home" style={TitleStyle}>{ title }</a>
+                    </Navbar.Brand>
+                <Navbar.Toggle />
+            </Navbar.Header>
+        );
+    }
+}

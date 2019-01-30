@@ -1,7 +1,7 @@
 import { ActionTypes } from './types';
 import { urlWeather, urlForecast } from '../utils/url';
 import filterCurrentWeather from '../utils/filterCurrentWeather';
-import IcurrentWeather from '../models/currentWeather';
+import IcurrentWeather from '../models/weatherModels';
 import filterWeatherForecast from '../utils/filterWeatherForecast';
 
 export interface IgetCurrentWeather {
