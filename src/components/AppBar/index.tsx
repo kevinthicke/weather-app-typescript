@@ -11,11 +11,14 @@ const NavbarStyle: React.CSSProperties = {
     alignItems: 'center'
 }
 
-const AppBar = () => (
-    <Navbar inverse style={NavbarStyle} staticTop>
-        <Title title={'Weather App'}/> 
-        <SearchBarContainer />
-    </Navbar>
-)
+export default class AppBar extends React.Component {
+    render() {
+        return (
+            <Navbar inverse style={NavbarStyle} staticTop>
+                <Title title={'Weather App'}/> 
+                <SearchBarContainer />
+            </Navbar>
+        )
+    }
+}
 
-export default AppBar;
