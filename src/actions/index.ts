@@ -12,14 +12,13 @@ export interface IgetCurrentWeather {
 export const getCurrentWeather = (city: string) => dispatch => {
     const url = urlWeather(city);
 
-    return fetch(url).then(
-        response => response.json()).then( 
-            fullData => dispatch({
-                type: ActionTypes.FETCH_CURRENT_WEATHER,
-                payload: filterCurrentWeather(fullData)
-                //payload: fullData
-            })
-        )
+    const response = fetch(url).then(response => response.json());
+
+    return response.then(fullData => dispatch({
+        type: ActionTypes.FETCH_CURRENT_WEATHER,
+        payload: filterCurrentWeather(fullData)
+        })
+    )
 }
 
 export const deleteFavLocation = (city: string) => ({
